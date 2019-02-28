@@ -30,7 +30,7 @@ class Fks extends Migration
         Schema::table('respuestas', function (Blueprint $table) {
             $table->foreign('fk_pregunta_encuesta_respuesta')->references('id_pregunta_encuesta_respuesta')->on('pregunta_er')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('fk_usuario')->references('id_usuario')->on('users')
+            $table->foreign('fk_usuario')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
     }
