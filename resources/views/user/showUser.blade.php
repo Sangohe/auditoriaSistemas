@@ -3,15 +3,20 @@
 @section('showUser')
     <div class="container">
         <div class="row containt-fluid">
-            <div class="card">
-                <div class="card-img-top">
-                    <img src="{{storage('images.jpeg')}}" alt="">
-                </div>
-                <div class="card-body">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-img-top">
+                        <img src="{{asset('storage/images.jpeg')}}" alt="">
+                    </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">
+                            <small class="text-muted">Nombre:</small>
+                            <div>{{$user->name}}</div>
+                        </li>
+                        <li class="list-group-item">
+                        <small class="text-muted">Correo:</small>
+                            <div>{{$user->email}}</div>
+                        </li>
                     </ul>
                 </div>
             </div>
