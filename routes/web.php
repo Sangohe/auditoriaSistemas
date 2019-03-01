@@ -20,6 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/user', 'UserController');
-
+Route::resource('/survey', 'PreguntaROController');
 Route::get('/user/password/form', 'UserController@form')->name('user.form');
 Route::post('/user/password', 'UserController@password')->name('user.password');
