@@ -17,5 +17,13 @@ class userSeeder extends Seeder
             'email' => 'admin@auditoria.com',
             'password' => Hash::make('clave')
         ]);
+
+        for ($i=1;$i<=10;$i++) {
+            User::create([
+                'name' => 'user'.$i,
+                'email' => 'user'.$i.'@auditoria.com',
+                'password' => Hash::make('clave')
+            ]);
+        }
     }
 }
