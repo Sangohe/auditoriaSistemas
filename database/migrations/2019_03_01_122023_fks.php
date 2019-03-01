@@ -26,7 +26,7 @@ class Fks extends Migration
         });
 
         Schema::table('pregunta_respuesta_ofrecida_usuario', function (Blueprint $table) {
-            $table->foreign('fk_pregunta_respuesta_ofrecida')->references('id_pregunta_respuesta_ofrecida')->on('pregunta_respuesta_ofrecida')
+            $table->foreign('fk_pregunta_ro')->references('id_pregunta_ro')->on('pregunta_respuesta_ofrecida')
                 ->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('fk_usuario')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');

@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Pregunta;
 
-class preguntaSeeder extends Seeder
+class PreguntaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -10,50 +11,50 @@ class preguntaSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
+    {
         //pregunta uno
         Pregunta::create([
-            'pregunta' => 'Planos para facilitar el diseño de la red'
+            'texto' => 'Planos para facilitar el diseño de la red'
         ]);
 
         //pregunta dos
         Pregunta::create([
-            'pregunta' => 'Instalacion de canaletas, puntos, cableado y otros'
+            'texto' => 'Instalacion de canaletas, puntos, cableado y otros'
         ]);
 
         //pregunta tres
         Pregunta::create([
-            'pregunta' => 'Instalacion de las tarjetas de red'
+            'texto' => 'Instalacion de las tarjetas de red'
         ]);
 
         //pregunta cuatro
         Pregunta::create([
-            'pregunta' => 'Configuracion de las tarjetas de red'
+            'texto' => 'Configuracion de las tarjetas de red'
         ]);
 
         //pregunta cinco
         Pregunta::create([
-            'pregunta' => 'Instalacion del router'
+            'texto' => 'Instalacion del router'
         ]);
 
         //pregunta seis
         Pregunta::create([
-            'pregunta' => 'Configuracion del router'
+            'texto' => 'Configuracion del router'
         ]);
 
         //pregunta siete
         Pregunta::create([
-            'pregunta' => 'Configuracion Ip y mascaras de la red'
+            'texto' => 'Configuracion Ip y mascaras de la red'
         ]);
 
         //pregunta ocho
         Pregunta::create([
-            'pregunta' => 'Asignacion de grupo de trabajo'
+            'texto' => 'Asignacion de grupo de trabajo'
         ]);
 
         //pregunta nueve
         Pregunta::create([
-            'pregunta' => 'Comprobacion de la eficacia del trabajo'
+            'texto' => 'Comprobacion de la eficacia del trabajo'
         ]);
     }
 }

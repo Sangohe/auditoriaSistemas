@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Respuesta_ofrecida;
 
 class ofrecidaSeeder extends Seeder
 {

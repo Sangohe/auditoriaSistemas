@@ -14,7 +14,7 @@ class PreguntaRespuestaOfrecida extends Migration
     public function up()
     {
         Schema::create('pregunta_respuesta_ofrecida', function (Blueprint $table) {
-            $table->bigIncrements('id_pregunta_respuesta_ofrecida');
+            $table->bigIncrements('id_pregunta_ro');
             $table->unsignedBigInteger('fk_pregunta');
             $table->unsignedBigInteger('fk_respuesta_ofrecida');
             $table->timestamps();
