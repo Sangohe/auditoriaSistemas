@@ -9,9 +9,15 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __contruct(){
+        dd("skdncmslk");
+    }
 
-    public function show($id)
+    public function show($id=null)
     {
+        if (Auth::check()) {
+            $id = Auth::id();
+        }
         $usuario = User::find($id);
         if(!empty($usuario)){
             return view('user.showUser', ['user' => $usuario]);
