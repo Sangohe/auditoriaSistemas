@@ -8,13 +8,13 @@
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('usuario.password', $user) }}">
+                    <form method="POST" action="{{ route('usuario.password') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="last_password" class="col-md-4 col-form-label text-md-right">{{ __('Last Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="last_password" type="last_password" class="form-control{{ $errors->has('last_password') ? ' is-invalid' : '' }}" name="last_password" value="{{ $last_password ?? old('last_password') }}" required autofocus>
+                                <input id="last_password" type="password" class="form-control{{ $errors->has('last_password') ? ' is-invalid' : '' }}" name="last_password" value="{{ $last_password ?? old('last_password') }}" required autofocus>
 
                                 @if ($errors->has('last_password'))
                                     <span class="invalid-feedback" role="alert">

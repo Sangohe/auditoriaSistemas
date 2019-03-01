@@ -22,4 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/usuario', 'UserController');
 
 Route::get('/usuario/password/form', 'UserController@form')->name('usuario.form');
-Route::post('/usuario/password/{id}', 'UserController@password')->name('usuario.password');
+Route::post('/usuario/password', 'UserController@password')->name('usuario.password');

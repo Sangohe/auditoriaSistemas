@@ -18,7 +18,6 @@ class UserController extends Controller
         } else {
             return back();
         }
-        
     }
 
     public function edit($id)
@@ -48,11 +47,11 @@ class UserController extends Controller
         }
     }
 
-    public function password(Request $request, $id)
+    public function password(Request $request)
     {
         $id = Auth::id();
         $usuario = User::find($id);
-        if (Hash::check($request->actual, $usuario->password)) {
+        if (Hash::check($request->last_password, $usuario->password)) {
             $usuario->password = Hash::make($request->password);
             if ($usuario->save()) {
                 return redirect()->route('usuario.show', $id);
