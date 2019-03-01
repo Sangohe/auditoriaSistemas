@@ -1,21 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
 
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        
-    }
 
     public function show($id)
     {
@@ -28,36 +21,25 @@ class UserController extends Controller
         
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
+        $id = Auth::id();
         $usuario = User::find($id);
         if(!empty($usuario)){
-            return view('user.editUser');
+            return view('user.editUser', ['user' => $usuario]);
         } else {
             return back();
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
+        $id = Auth::id();
         $usuario = User::find($id);
         if(!empty($usuario)){
             $usuario->fill($request->all());
             if($usuario->save()){
-                return view('user.showUser');
+                return redirect()->route('usuario.show', $id);
             } else {
                 return back();
             }
@@ -66,14 +48,26 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function password(Request $request, $id)
     {
-        //
+        $id = Auth::id();
+        $usuario = User::find($id);
+        if (Hash::check($request->actual, $usuario->password)) {
+            $usuario->password = Hash::make($request->password);
+            if ($usuario->save()) {
+                return redirect()->route('usuario.show', $id);
+            } else {
+                return back();
+            }
+        } else {
+            return back();
+        }
+    }
+
+    public function form()
+    {
+        $id = Auth::id();
+        $usuario = User::find($id);
+        return view('user.editPassword', ['user' => $usuario]);
     }
 }
