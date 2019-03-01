@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class PreguntaEncuesta extends Migration
+class PreguntaRespuestaOfrecida extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class PreguntaEncuesta extends Migration
      */
     public function up()
     {
-        Schema::create('pregunta_encuesta', function (Blueprint $table) {
-            $table->bigIncrements('id_pregunta_encuesta');
+        Schema::create('pregunta_respuesta_ofrecida', function (Blueprint $table) {
+            $table->bigIncrements('id_pregunta_ro');
             $table->unsignedBigInteger('fk_pregunta');
-            $table->unsignedBigInteger('fk_encuesta');
+            $table->unsignedBigInteger('fk_respuesta_ofrecida');
             $table->timestamps();
-            // $table->primary('id_pregunta_encuesta');
         });
     }
 
@@ -29,6 +28,6 @@ class PreguntaEncuesta extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pregunta_encuesta');
+        Schema::dropIfExists('pregunta_respuesta_ofrecida');
     }
 }

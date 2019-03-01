@@ -15,6 +15,7 @@ class CreatePreguntasTable extends Migration
     {
         Schema::create('preguntas', function (Blueprint $table) {
             $table->bigIncrements('id_pregunta');
+            $table->unsignedBigInteger('fk_encuesta')->nullable();
             $table->text('texto');
             $table->timestamps();
         });
