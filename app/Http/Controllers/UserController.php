@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class UserController extends Controller
     {
         $usuario = User::find($id);
         if(!empty($usuario)){
-            return view('user.showUser');
+            return view('user.showUser', ['user' => $usuario]);
         } else {
             return back();
         }
