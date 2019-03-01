@@ -38,7 +38,7 @@ class UserController extends Controller
         if(!empty($usuario)){
             $usuario->fill($request->all());
             if($usuario->save()){
-                return redirect()->route('usuario.show', $id);
+                return redirect()->route('user.show', $id);
             } else {
                 return back();
             }
@@ -54,7 +54,7 @@ class UserController extends Controller
         if (Hash::check($request->last_password, $usuario->password)) {
             $usuario->password = Hash::make($request->password);
             if ($usuario->save()) {
-                return redirect()->route('usuario.show', $id);
+                return redirect()->route('user.show', $id);
             } else {
                 return back();
             }

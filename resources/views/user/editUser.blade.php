@@ -1,6 +1,6 @@
 @extends('user.navbar')
 
-@section('showUser')
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Update profile') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('usuario.update', $user->id) }}">
+                    <form method="POST" action="{{ route('user.update', $user->id) }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group row">
@@ -43,9 +43,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Update') }}
                                 </button>
-                                <div class="float-right">
-                                    <a href="{{route('usuario.form')}}">change password</a>
-                                </div>
                             </div>
                         </div>
                     </form>

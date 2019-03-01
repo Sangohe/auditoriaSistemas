@@ -1,6 +1,6 @@
 @extends('user.navbar')
 
-@section('showUser')
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('usuario.password') }}">
+                    <form method="POST" action="{{ route('user.password') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="last_password" class="col-md-4 col-form-label text-md-right">{{ __('Last Password') }}</label>

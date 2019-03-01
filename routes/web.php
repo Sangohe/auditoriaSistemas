@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/usuario', 'UserController');
+Route::resource('/user', 'UserController');
 
-Route::get('/usuario/password/form', 'UserController@form')->name('usuario.form');
-Route::post('/usuario/password', 'UserController@password')->name('usuario.password');
+Route::get('/user/password/form', 'UserController@form')->name('user.form');
+Route::post('/user/password', 'UserController@password')->name('user.password');
